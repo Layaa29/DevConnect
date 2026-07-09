@@ -1,4 +1,4 @@
-# 🚀 DevConnect - The Premium Developer Portfolio & Collaboration Network
+DevConnect - The Developer Portfolio & Collaboration Network
 
 DevConnect is a premium, production-ready professional network designed exclusively for software developers. Think of it as a combination of GitHub and LinkedIn: developers can build stunning, comprehensive portfolios (showcasing skills, certifications, experience, education, and projects with live demo links), share coding tips, publish media-attached posts, connect with peers, and collaborate via secure, real-time WebSocket chats.
 
@@ -309,8 +309,4 @@ The client app opens in your browser at `http://localhost:5173`.
 
 ---
 
-## 🔮 Future Enhancements
-- Integration with Amazon S3 or Cloudinary for cloud file attachments.
-- GitHub API integration to automatically sync repositories directly into the Projects section.
-- Video calling capability via WebRTC.
-- Comprehensive unit and integration test suites.
+
