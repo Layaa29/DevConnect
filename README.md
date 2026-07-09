@@ -13,6 +13,25 @@ DevConnect features a curated slate-light theme with beautiful gradients, sleek 
 
 ---
 
+## 📷 Screenshots
+
+### Login Page
+![Login Screen](screenshots/login.png)
+
+### Dashboard Feed & Composer
+![Dashboard Screen](screenshots/dashboard.png)
+
+### Developer Portfolio Profile
+![Profile Screen](screenshots/profile.png)
+
+### Search & Discovery Directory
+![Search Screen](screenshots/search.png)
+
+### Connections Network Management
+![Connections Screen](screenshots/connections.png)
+
+---
+
 ## 🛠️ Tech Stack
 
 ### Frontend
