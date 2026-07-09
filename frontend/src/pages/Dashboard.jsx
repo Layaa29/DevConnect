@@ -778,20 +778,32 @@ function Dashboard() {
                     <p className="muted" style={{ margin: 0, fontSize: "0.88rem" }}>No connections yet.</p>
                   ) : (
                     <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
-                      {recentConnections.map((conn) => {
-                        const dev = getConnectedUser(conn);
-                        return (
-                          <div key={conn.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                              <span className="chat-user-avatar" style={{ width: "36px", height: "36px", fontSize: "0.9rem" }}>{dev.name?.charAt(0)?.toUpperCase()}</span>
-                              <strong style={{ fontSize: "0.9rem", color: "var(--text-primary)" }}>{dev.name}</strong>
+                      {(() => {
+                        const seen = new Set();
+                        const uniqueRecents = [];
+                        recentConnections.forEach((conn) => {
+                          const dev = getConnectedUser(conn);
+                          if (dev.id && !seen.has(dev.id)) {
+                            seen.add(dev.id);
+                            uniqueRecents.push(conn);
+                          }
+                        });
+
+                        return uniqueRecents.map((conn) => {
+                          const dev = getConnectedUser(conn);
+                          return (
+                            <div key={conn.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                                <span className="chat-user-avatar" style={{ width: "36px", height: "36px", fontSize: "0.9rem" }}>{dev.name?.charAt(0)?.toUpperCase()}</span>
+                                <strong style={{ fontSize: "0.9rem", color: "var(--text-primary)" }}>{dev.name}</strong>
+                              </div>
+                              <Link className="btn btn-secondary" style={{ padding: "6px 12px", fontSize: "0.78rem", borderRadius: "8px" }} to="/chat">
+                                Message
+                              </Link>
                             </div>
-                            <Link className="btn btn-secondary" style={{ padding: "6px 12px", fontSize: "0.78rem", borderRadius: "8px" }} to="/chat">
-                              Message
-                            </Link>
-                          </div>
-                        );
-                      })}
+                          );
+                        });
+                      })()}
                     </div>
                   )}
                 </div>

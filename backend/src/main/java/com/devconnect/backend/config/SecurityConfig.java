@@ -27,7 +27,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
                                 "/api/users/login",
-                                "/api/users/register"
+                                "/api/users/register",
+                                "/uploads/**"
                         ).permitAll()
                         .requestMatchers("/chat/**").permitAll()
                         .anyRequest().authenticated()

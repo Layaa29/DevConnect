@@ -167,26 +167,38 @@ function Connections() {
                 </div>
               ) : (
                 <div className="list-grid" style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  {connections.map((connection) => {
-                    const user = getConnectedUser(connection);
+                  {(() => {
+                    const seen = new Set();
+                    const uniqueConnections = [];
+                    connections.forEach((conn) => {
+                      const user = getConnectedUser(conn);
+                      if (user.id && !seen.has(user.id)) {
+                        seen.add(user.id);
+                        uniqueConnections.push(conn);
+                      }
+                    });
 
-                    return (
-                      <div key={connection.id} className="list-item" style={{ background: "rgba(255, 255, 255, 0.02)", padding: "16px 20px", borderRadius: "12px", border: "1px solid var(--glass-border)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <div className="connection-user" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                          <span className="chat-user-avatar" style={{ background: "linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2))", color: "var(--text-primary)" }}>
-                            {user.name?.charAt(0)?.toUpperCase()}
-                          </span>
-                          <div>
-                            <strong style={{ fontSize: "0.95rem", color: "var(--text-primary)" }}>{user.name}</strong>
-                            <p className="muted" style={{ fontSize: "0.75rem", margin: 0 }}>Active Connection</p>
+                    return uniqueConnections.map((connection) => {
+                      const user = getConnectedUser(connection);
+
+                      return (
+                        <div key={connection.id} className="list-item" style={{ background: "rgba(255, 255, 255, 0.02)", padding: "16px 20px", borderRadius: "12px", border: "1px solid var(--glass-border)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <div className="connection-user" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                            <span className="chat-user-avatar" style={{ background: "linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2))", color: "var(--text-primary)" }}>
+                              {user.name?.charAt(0)?.toUpperCase()}
+                            </span>
+                            <div>
+                              <strong style={{ fontSize: "0.95rem", color: "var(--text-primary)" }}>{user.name}</strong>
+                              <p className="muted" style={{ fontSize: "0.75rem", margin: 0 }}>Active Connection</p>
+                            </div>
                           </div>
+                          <Link className="btn btn-secondary" style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 16px", fontSize: "0.85rem" }} to="/chat">
+                            <FaComments /> Message
+                          </Link>
                         </div>
-                        <Link className="btn btn-secondary" style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 16px", fontSize: "0.85rem" }} to="/chat">
-                          <FaComments /> Message
-                        </Link>
-                      </div>
-                    );
-                  })}
+                      );
+                    });
+                  })()}
                 </div>
               )}
             </section>
