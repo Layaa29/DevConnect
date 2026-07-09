@@ -1,4 +1,7 @@
-DevConnect - The Developer Portfolio & Collaboration Network
+# 🚀 DevConnect - The Premium Developer Portfolio & Collaboration Network
+
+🔗 **Live Demo**: [devconnect-layaa29.onrender.com](https://devconnect-layaa29.onrender.com)  
+🔗 **Backend API**: [devconnect-backend-layaa29.onrender.com](https://devconnect-backend-layaa29.onrender.com)
 
 DevConnect is a premium, production-ready professional network designed exclusively for software developers. Think of it as a combination of GitHub and LinkedIn: developers can build stunning, comprehensive portfolios (showcasing skills, certifications, experience, education, and projects with live demo links), share coding tips, publish media-attached posts, connect with peers, and collaborate via secure, real-time WebSocket chats.
 
