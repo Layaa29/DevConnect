@@ -1,0 +1,19 @@
+# Spring Boot Backend overrides
+backend/target/
+backend/.idea/
+backend/*.class
+backend/.mvn/
+backend/uploads/
+backend/bin/
+
+# React Frontend overrides
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# General OS files
+.DS_Store
+Thumbs.db
